@@ -1,0 +1,25 @@
+import React from "react";
+import wallpaperSectionCardData from "../../../../asset/data/WallpaperSection";
+import { cardStyles } from "../styles";
+
+const CircularCard = () => {
+    const classes = cardStyles();
+    return (
+        <div className={classes.root}>
+            {wallpaperSectionCardData.map((card) => (
+                <div className={classes.card}>
+                    {card.progress && card.progress()}
+                    <img
+                        alt="icon"
+                        style={{ width: "32px", height: "32px", position: "relative" }}
+                        src={card.url}
+                    />
+                    <p className={classes.stats}>{card.count}</p>
+                    <p className={classes.subtitle}>{card.label}</p>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default CircularCard;
